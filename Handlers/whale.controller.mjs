@@ -5,7 +5,7 @@ import { readFileSync, unlink, unlinkSync, writeFileSync } from "fs"
 export const getLatestWhaleInfo = async () => {
     try {
         const key = process.env.API_KEY
-        const { data } = await axios.get(`https://api.clankapp.com/v2/explorer/tx?api_key=${key}&s_timestamp=desc&>_amount_usd=10000000`)
+        const { data } = await axios.get(`https://api.clankapp.com/v2/explorer/tx?api_key=${key}&s_timestamp=desc&>_amount_usd=100000000`)
         const response = data?.data?.[0]
         if (!response) return false
         const { format_amount, symbol, format_amount_usd, from_owner, to_owner, date, blockchain, hash, unique_machine_id } = response
